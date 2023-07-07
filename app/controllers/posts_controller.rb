@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
   def show
     post = Post.find(params[:id])
-    render json: post
+    render json: post, include: ['title', 'short_content', 'author.name', 'tags']
   end
 
   private
